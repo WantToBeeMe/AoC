@@ -5,15 +5,17 @@ class Program
     static void Main(string[] args)
     {
         
-        string[] lines = System.IO.File.ReadAllLines("small_input.txt");
+        string[] lines = System.IO.File.ReadAllLines("input.txt");
 
         KeyValuePair<string, int>[] instructions = getMoveSet(lines);
         Device device = new Device();
         //part 1
 
-        foreach(var struck in instructions){
-            Console.WriteLine($"{struck.Key} - {struck.Value}");
+        var signals = device.GetImage(instructions);
+        foreach(var sig in signals){
+            Console.WriteLine(sig);
         }
+        
 
     }
 
